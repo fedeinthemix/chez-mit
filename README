@@ -1,0 +1,61 @@
+# -*- mode: org -*-
+
+* Description
+
+This is a MIT/GNU Scheme compatibility library for Chez Scheme.  The
+goal of the library is to provide those functions used in the
+'Scmutils' library which are not available in Chez Scheme.
+
+Note that the behavior of some functions differs from the one in
+MIT/GNU Scheme.  This is the case for example for functions
+manipulating environments:  MIT/GNU Scheme provides hierarchical
+environments, while Chez Scheme doesn't.
+
+* Build
+
+To build the libraries run "make".  By default it looks for a
+Chez Scheme binary called "chez-scheme".  If the name of your binary
+is different, you can specify it as follows (for all targets):
+
+make CHEZ=my-chez-scheme-bin
+
+To test the build run
+
+make test
+
+* Install
+
+By default "make install" will install the libraries under the prefix
+"/usr/local".  You can specify a different installation prefix
+directory as follows:
+
+make install PREFIX=/my-prefix/path
+
+This will install all compiled libraries (*.so files) to
+$PREFIX/lib/csvX.Y-site, where X.Y is Chez's version.  If in addition
+you want to install the source files, use the 'install-src' target.
+They are installed in the same directory as the .so files.
+
+* Use
+
+Make sure that Chez Scheme can find the libraries by specifying their
+location on the command line (with the appropriate flag), or by
+setting the environment variable CHEZSCHEMELIBDIRS.
+
+The library is split in the following sub-libraries: 
+
+  - (mit apply-hook)
+  - (mit arithmetic)
+  - (mit arity)
+  - (mit core)
+  - (mit curry)
+  - (mit environment)
+  - (mit hash-tables)
+  - (mit list)
+  - (mit streams)
+  - (mit vector)
+
+The symbol 'procedure-arity' is exported by both (mit apply-hook) and
+(mit arity).  The difference is that the former supports 'apply-hooks'
+while the latter doesn't.  Thus, if you do not use 'apply-hooks' use
+the one from (mit arity), otherwise use the one from (mit apply-hook).
