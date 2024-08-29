@@ -14,7 +14,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 PACKAGE = chez-mit
-VERSION = 0.1
+VERSION = 0.2
 
 CHEZ = chez-scheme
 INSTALL = install -D

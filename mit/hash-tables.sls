@@ -14,7 +14,7 @@
           hash-table/key-list
           hash
           hash-table->alist)
-  (import (except (chezscheme) error assert sort)
+  (import (except (chezscheme) error assert sort string->uninterned-symbol)
           (mit core)
           (mit curry)
           )
